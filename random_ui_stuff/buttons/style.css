@@ -1,0 +1,59 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --size-btn-close: 45px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: lightgrey;
+}
+
+.close {
+    position: relative;
+    width: var(--size-btn-close);
+    height: var(--size-btn-close);
+    opacity: 0.3;
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    background: transparent;
+    transition: opacity 0.2s ease;
+}
+
+.close:focus {
+    outline: none;
+}
+
+.close:active {
+    position: relative;
+    top: 1px;
+    left: 1px;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.close::before,
+.close::after {
+    position: absolute;
+    top: 0;
+    content: "";
+    height: var(--size-btn-close);
+    width: 2px;
+    background-color: #333;
+}
+
+.close::before {
+    transform: rotate(45deg);
+}
+.close::after {
+    transform: rotate(-45deg);
+}
