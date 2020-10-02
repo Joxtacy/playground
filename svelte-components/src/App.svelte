@@ -1,4 +1,5 @@
 <script>
+    import CloseButton from "./components/CloseButton.svelte";
     export let name;
 </script>
 
@@ -24,9 +25,16 @@
             max-width: none;
         }
     }
+
+    :global([ref="close"]) {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
 </style>
 
 <main>
+    <CloseButton ref="close" size={'45px'} bgColor={'aliceblue'} color="red" />
     <h1>Hello {name}!</h1>
     <p>
         Visit the
