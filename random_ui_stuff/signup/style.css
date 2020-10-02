@@ -136,6 +136,13 @@ body {
     padding: 25px 22px 24px 22px;
 }
 
+.signup-input:user-invalid {
+    border-color: red;
+}
+
+.signup-input:placeholder-shown {
+}
+
 .submit-button {
     border: none;
     border-radius: 5px;
