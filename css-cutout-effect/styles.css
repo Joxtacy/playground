@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.background {
+    background: url("./galaxy.jpeg") center;
+    background-size: cover;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 15vw;
+    font-weight: bold;
+    font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #000;
+    background: #fff;
+    mix-blend-mode: lighten;
+}
