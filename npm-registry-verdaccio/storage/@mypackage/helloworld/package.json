@@ -1,0 +1,160 @@
+{
+	"name": "@mypackage/helloworld",
+	"versions": {
+		"1.0.0": {
+			"name": "@mypackage/helloworld",
+			"version": "1.0.0",
+			"description": "helloworld dummy project",
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"keywords": [],
+			"author": {
+				"name": "Banarne"
+			},
+			"license": "ISC",
+			"_id": "@mypackage/helloworld@1.0.0",
+			"_nodeVersion": "15.5.1",
+			"_npmVersion": "7.3.0",
+			"dist": {
+				"integrity": "sha512-ZC/Nt80tC/3X0AWQTzmrHt/IM0VZk07xpALuKuix6+yPH4WvgEDzeuBliRRL9vSsoBI/MaRgZz49z9YOtDUbjw==",
+				"shasum": "dbdc06727e52439c1ce6939d7f73a9e96fd02d82",
+				"tarball": "http://localhost:4873/@mypackage/helloworld/-/@mypackage/helloworld-1.0.0.tgz"
+			},
+			"contributors": []
+		},
+		"1.0.1": {
+			"name": "@mypackage/helloworld",
+			"version": "1.0.1",
+			"description": "helloworld dummy project",
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"keywords": [],
+			"author": {
+				"name": "Banarne"
+			},
+			"license": "ISC",
+			"_id": "@mypackage/helloworld@1.0.1",
+			"_nodeVersion": "15.5.1",
+			"_npmVersion": "7.3.0",
+			"dist": {
+				"integrity": "sha512-SR3ZzCy4Y+yfCxNQVv/GuhT6uSZ1DarJ/9LYFhUCa3Lj7qQBdpvbE0VDS5teTNi6MwOAc3T2aprOxOp3AjcsCg==",
+				"shasum": "fcb9885c8b36f7eb0ac09e9c9ba778a0ca57e02c",
+				"tarball": "http://localhost:4873/@mypackage/helloworld/-/@mypackage/helloworld-1.0.1.tgz"
+			},
+			"contributors": []
+		},
+		"1.0.2": {
+			"name": "@mypackage/helloworld",
+			"version": "1.0.2",
+			"description": "helloworld dummy project",
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"keywords": [],
+			"author": {
+				"name": "Banarne"
+			},
+			"license": "ISC",
+			"_id": "@mypackage/helloworld@1.0.2",
+			"_nodeVersion": "15.5.1",
+			"_npmVersion": "7.3.0",
+			"dist": {
+				"integrity": "sha512-KXdLm5bx0efZoWIV7Kcn8eaeDOqpAY2f11aioDJWF6lpqY8eFigPz/RFbDUCDxYkNg5TJS7rFuE+eVmBeaOjNw==",
+				"shasum": "a4cf4b48a95385afb58f6b1129e0a444ba72dc0b",
+				"tarball": "http://localhost:4873/@mypackage/helloworld/-/@mypackage/helloworld-1.0.2.tgz"
+			},
+			"contributors": []
+		},
+		"2.0.0": {
+			"name": "@mypackage/helloworld",
+			"version": "2.0.0",
+			"description": "helloworld dummy project",
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"keywords": [],
+			"author": {
+				"name": "Banarne"
+			},
+			"license": "ISC",
+			"_id": "@mypackage/helloworld@2.0.0",
+			"_nodeVersion": "15.5.1",
+			"_npmVersion": "7.3.0",
+			"dist": {
+				"integrity": "sha512-axUbDfqcDCsBAHC7TnRwxUIJqgX3KVw5tFN1AnvfGL4Dm/MMm7KFAjIIDg4Xlw4thWzmrg5Y3nureMXO7PBYiQ==",
+				"shasum": "33ad089bde06b6f5c9cad546a4ca95853114df1f",
+				"tarball": "http://localhost:4873/@mypackage/helloworld/-/@mypackage/helloworld-2.0.0.tgz"
+			},
+			"contributors": []
+		},
+		"2.1.0": {
+			"name": "@mypackage/helloworld",
+			"version": "2.1.0",
+			"description": "helloworld dummy project",
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"keywords": [],
+			"author": {
+				"name": "Banarne"
+			},
+			"license": "ISC",
+			"_id": "@mypackage/helloworld@2.1.0",
+			"_nodeVersion": "15.5.1",
+			"_npmVersion": "7.3.0",
+			"dist": {
+				"integrity": "sha512-c4bnUDr2eoE/ImqXBG2OCLgkGkJNQD2DEwfbcvLGL8kNyMit9qT/4zJDKCmN6UmffN1GGo+JFYdqxbUvFUjnFQ==",
+				"shasum": "6428b89c1089e5e6a145068a0f7fd6b7d93155eb",
+				"tarball": "http://localhost:4873/@mypackage/helloworld/-/@mypackage/helloworld-2.1.0.tgz"
+			},
+			"contributors": []
+		}
+	},
+	"time": {
+		"modified": "2021-01-14T08:36:27.770Z",
+		"created": "2021-01-14T08:15:34.390Z",
+		"1.0.0": "2021-01-14T08:15:34.390Z",
+		"1.0.1": "2021-01-14T08:18:19.734Z",
+		"1.0.2": "2021-01-14T08:27:19.116Z",
+		"2.0.0": "2021-01-14T08:35:01.530Z",
+		"2.1.0": "2021-01-14T08:36:27.770Z"
+	},
+	"users": {},
+	"dist-tags": {
+		"latest": "2.1.0"
+	},
+	"_uplinks": {},
+	"_distfiles": {},
+	"_attachments": {
+		"helloworld-1.0.0.tgz": {
+			"shasum": "dbdc06727e52439c1ce6939d7f73a9e96fd02d82",
+			"version": "1.0.0"
+		},
+		"helloworld-1.0.1.tgz": {
+			"shasum": "fcb9885c8b36f7eb0ac09e9c9ba778a0ca57e02c",
+			"version": "1.0.1"
+		},
+		"helloworld-1.0.2.tgz": {
+			"shasum": "a4cf4b48a95385afb58f6b1129e0a444ba72dc0b",
+			"version": "1.0.2"
+		},
+		"helloworld-2.0.0.tgz": {
+			"shasum": "33ad089bde06b6f5c9cad546a4ca95853114df1f",
+			"version": "2.0.0"
+		},
+		"helloworld-2.1.0.tgz": {
+			"shasum": "6428b89c1089e5e6a145068a0f7fd6b7d93155eb",
+			"version": "2.1.0"
+		}
+	},
+	"_rev": "15-84bdf072d4a5bd17",
+	"_id": "@mypackage/helloworld",
+	"readme": "ERROR: No README data found!"
+}

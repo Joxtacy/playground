@@ -1,0 +1,12 @@
+{
+  "name": "@mypackage/helloworld",
+  "version": "2.1.0",
+  "description": "helloworld dummy project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Banarne",
+  "license": "ISC"
+}
