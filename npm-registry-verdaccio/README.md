@@ -2,6 +2,15 @@
 
 ## Run the docker
 
+### With docker-compose (recommended)
+
+`--build` is used to build the image if it does not exist yet.
+`-d` is to start the container in detached mode.
+
+    $: docker-compose up --build -d
+
+### With just the Verdaccio image (the old way)
+
 ```
 $: docker run -it --detach \
     --publish 4873:4873 \
