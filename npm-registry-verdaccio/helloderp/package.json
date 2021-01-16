@@ -9,6 +9,7 @@
     "author": "Jesper Hasselquist <jesper.hasselquist@gmail.com> (https://joxtacy.github.io/)",
     "license": "MIT",
     "dependencies": {
-        "@mypackage/helloworld": "^1.0.0"
+        "@mypackage/helloworld": "^2.1.0",
+        "webpack": "^5.14.0"
     }
 }

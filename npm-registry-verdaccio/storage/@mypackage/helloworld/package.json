@@ -115,20 +115,45 @@
 				"tarball": "http://localhost:4873/@mypackage/helloworld/-/@mypackage/helloworld-2.1.0.tgz"
 			},
 			"contributors": []
+		},
+		"2.2.0": {
+			"name": "@mypackage/helloworld",
+			"version": "2.2.0",
+			"description": "helloworld dummy project",
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"keywords": [],
+			"author": {
+				"name": "Banarne"
+			},
+			"license": "ISC",
+			"readmeFilename": "README.md",
+			"_id": "@mypackage/helloworld@2.2.0",
+			"_nodeVersion": "15.5.1",
+			"_npmVersion": "7.3.0",
+			"dist": {
+				"integrity": "sha512-Wlku7hNu/PfpVQqnnnPScZsrGBu6kaSS5e1YvTj8AYUsjGcnlaJkBnPorjb8ePA8b+NUMfjm5aLRBwJ1ZKWRHQ==",
+				"shasum": "c8bef1fa6677eccd9e60291a199638c9518d82ab",
+				"tarball": "http://localhost:4873/@mypackage/helloworld/-/@mypackage/helloworld-2.2.0.tgz"
+			},
+			"contributors": []
 		}
 	},
 	"time": {
-		"modified": "2021-01-14T08:36:27.770Z",
+		"modified": "2021-01-15T08:59:08.036Z",
 		"created": "2021-01-14T08:15:34.390Z",
 		"1.0.0": "2021-01-14T08:15:34.390Z",
 		"1.0.1": "2021-01-14T08:18:19.734Z",
 		"1.0.2": "2021-01-14T08:27:19.116Z",
 		"2.0.0": "2021-01-14T08:35:01.530Z",
-		"2.1.0": "2021-01-14T08:36:27.770Z"
+		"2.1.0": "2021-01-14T08:36:27.770Z",
+		"2.2.0": "2021-01-15T08:59:08.036Z"
 	},
 	"users": {},
 	"dist-tags": {
-		"latest": "2.1.0"
+		"latest": "2.2.0"
 	},
 	"_uplinks": {},
 	"_distfiles": {},
@@ -152,9 +177,13 @@
 		"helloworld-2.1.0.tgz": {
 			"shasum": "6428b89c1089e5e6a145068a0f7fd6b7d93155eb",
 			"version": "2.1.0"
+		},
+		"helloworld-2.2.0.tgz": {
+			"shasum": "c8bef1fa6677eccd9e60291a199638c9518d82ab",
+			"version": "2.2.0"
 		}
 	},
-	"_rev": "15-84bdf072d4a5bd17",
+	"_rev": "19-0b17c74dbb250007",
 	"_id": "@mypackage/helloworld",
-	"readme": "ERROR: No README data found!"
+	"readme": "# NPM Registry\n\nFan vad ball!"
 }
