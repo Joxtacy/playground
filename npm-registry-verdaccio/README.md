@@ -1,4 +1,5 @@
 # Private NPM Registry with Verdaccio
+Inspiration: https://blog.bitsrc.io/how-to-set-up-a-private-npm-registry-locally-1065e6790796
 
 ## Run the docker
 
