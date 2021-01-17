@@ -1,5 +1,6 @@
 <script>
     import CloseButton from "./components/CloseButton.svelte";
+    import Galaxy from "./components/Text/GalaxyText.svelte";
     export let name;
 </script>
 
@@ -36,6 +37,7 @@
 <main>
     <CloseButton ref="close" size={'45px'} bgColor={'aliceblue'} color="red" />
     <h1>Hello {name}!</h1>
+    <Galaxy />
     <p>
         Visit the
         <a href="https://svelte.dev/tutorial">Svelte tutorial</a>
