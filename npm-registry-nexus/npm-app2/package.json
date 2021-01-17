@@ -10,7 +10,6 @@
   "author": "Jesper Hasselquist <jesper.hasselquist@gmail.com> (https://joxtacy.github.io/)",
   "license": "MIT",
   "dependencies": {
-    "@tvx/npm-app1": "^1.1.1",
-    "webpack": "^5.15.0"
+    "@tvx/npm-app1": "^1.1.1"
   }
 }
