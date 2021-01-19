@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            background-color: white;
+            height: 100%;
+          }
+
+          body {
+            height: inherit;
+            background-color: red;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          div {
+            display: inline-block;
+            font-size: 10rem;
+          }
+    </style>
+</head>
+<body>
+    <div>↻</div>
+    <script>
+        const spinner = document.querySelector("div");
+        let rotateCount = 0;
+        let startTime = null;
+        let rAF;
+        let spinning = false;
+
+        document.body.addEventListener("click", toggleAnimationFrame)
+
+        function toggleAnimationFrame() {
+            if (spinning) {
+                cancelAnimationFrame(rAF);
+                startTime = null;
+            } else {
+                draw();
+            }
+            spinning = !spinning;
+        }
+
+        function draw(timestamp) {
+            if (!startTime) {
+                startTime = timestamp;
+            }
+
+            rotateCount = (timestamp - startTime) / 3;
+
+            rotateCount %= 360;
+
+            console.log("rotateCount", rotateCount);
+            spinner.style.transform = `rotate(${rotateCount}deg)`;
+
+            rAF = requestAnimationFrame(draw);
+        }
+    </script>
+</body>
+</html>
