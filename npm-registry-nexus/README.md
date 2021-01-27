@@ -5,7 +5,7 @@ Inspiration:
 
 ## Docker
 
-    docker run --rm -it -p 8081:8081 -v `pwd`/nexus-data:/nexus-data sonatype/nexus3
+    docker run --rm -it -p 8081:8081 -v `pwd`/nexus-data:/nexus-data --name nexus_npm sonatype/nexus3
 
 
 ## For Nexus 2
