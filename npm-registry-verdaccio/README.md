@@ -15,6 +15,8 @@ Inspiration: https://blog.bitsrc.io/how-to-set-up-a-private-npm-registry-locally
 ```
 $: docker run -it --detach \
     --publish 4873:4873 \
+    --network jenkins \
+    --network-alias verdaccio \
     --volume `pwd`/conf:/verdaccio/conf \
     --volume `pwd`/storage:/verdaccio/storage \
     --volume `pwd`/plugins:/verdaccio/plugins \

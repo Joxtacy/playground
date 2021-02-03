@@ -1,0 +1,91 @@
+{
+	"name": "@joxtacy/eslint-config",
+	"versions": {
+		"0.0.1": {
+			"name": "@joxtacy/eslint-config",
+			"version": "0.0.1",
+			"description": "My ESLint configuration",
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Joxtacy/eslint-config.git"
+			},
+			"keywords": [
+				"eslint",
+				"eslintconfig"
+			],
+			"author": {
+				"name": "Jesper Hasselquist",
+				"email": "jesper.hasselquist@gmail.com",
+				"url": "https://joxtacy.github.io/"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/Joxtacy/eslint-config/issues"
+			},
+			"homepage": "https://github.com/Joxtacy/eslint-config#readme",
+			"gitHead": "e78a0fb64f6496e48669de8f813cf6a8e59042a1",
+			"_id": "@joxtacy/eslint-config@0.0.1",
+			"_nodeVersion": "15.7.0",
+			"_npmVersion": "7.4.3",
+			"dist": {
+				"integrity": "sha512-EzfDZYRe7ipmjTiWXk6MZoIyH5cXlPpKxGR/EAF258Srs453hr931NOYreqOdOupi3orFg8zYTCfJLAVabafCQ==",
+				"shasum": "fa78c70bff3d10ae54d8e752ff76246dceaf58b5",
+				"tarball": "https://registry.npmjs.org/@joxtacy/eslint-config/-/eslint-config-0.0.1.tgz",
+				"fileCount": 4,
+				"unpackedSize": 3815,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgGOZ+CRA9TVsSAnZWagAAxcYP/RhI+7MTEczgztKww0VF\nYcyCqaJbsBGb6+EUqPgf8BM9jRvf9uztbB3nszoXdWasvZpki+syhGZIQSOp\nNy84EesXx9nPKpgg4Cb6zZSWg2V2J0i1TJbz69l7IDuXj8ezJtj6HqFwnHYC\nXeV/xhCxXP0lcrgPeQvfo35H6eqKqyV+qquL3NqDxDilMQOaGteHG74iZLkS\nN96F/P/ch2DmQT1+N3vVXDZQks06M3EadrIgOMQHqOYEA01WBFV5VCMgJKn1\nDx3Q9yhqF0ZFQI0eBSFqKv+FIIv28mH9NI2DVEPjGz8sFc2zqk4REeftojiq\nEVFcnCKtEiGFnaByd0FU/V3iv20YzR2s7KFxeSkJJbbV5BI1crHY8DfT4Awp\n2SS10/CdsXE8J327MqzHRuLBdSwK8fAqI6vMN5xZRT1p6nzltE+hS/4ASh0O\ngTq0GdigHh/cSzWcgFA+AqHwrp9SHesxA7Es4bR+Px28wLpT9kX3tai/ol0l\nps3tOfYLtwVHlDZZoCChC4s+wwQH/JLt9Vr3sIg7sHZkumWFTHPd/gQEwSI4\nAbt1tDftHrRJ9e3wQnqamRJK40aesQs10W1cNBcd3NRoHCEs2iEpI5P2S+xO\nI2VTdR9xjl0ZrzfvxzitBG7CUkbfMN0eXihaYjOT8DRZYSNCV9Ef2sT9Objm\nfFWb\r\n=wQvn\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "joxtacy",
+				"email": "jesper.hasselquist@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "joxtacy",
+					"email": "jesper.hasselquist@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/eslint-config_0.0.1_1612244605995_0.10290556670315132"
+			},
+			"_hasShrinkwrap": false,
+			"contributors": []
+		}
+	},
+	"time": {
+		"created": "2021-02-02T05:43:25.957Z",
+		"0.0.1": "2021-02-02T05:43:26.134Z",
+		"modified": "2021-02-02T05:43:28.459Z"
+	},
+	"users": {},
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"5b55d20e99f5aae72d7dcace4b1afd65\"",
+			"fetched": 1612272328953
+		}
+	},
+	"_distfiles": {
+		"eslint-config-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/@joxtacy/eslint-config/-/eslint-config-0.0.1.tgz",
+			"sha": "fa78c70bff3d10ae54d8e752ff76246dceaf58b5",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {
+		"eslint-config-0.0.1.tgz": {
+			"shasum": "04b81f5206fd42e1d663784e5355927f9075e9e4"
+		}
+	},
+	"_rev": "2-923d059066f8fdf0",
+	"_id": "@joxtacy/eslint-config",
+	"readme": "# eslint-config\nMy ESLint configuration"
+}

@@ -4,8 +4,6 @@ services:
   verdaccio:
     image: verdaccio/verdaccio
     container_name: "verdaccio"
-    networks:
-      - node-network
     environment:
       - VERDACCIO_PORT=4873
     ports:
@@ -15,5 +13,6 @@ services:
       - "./conf:/verdaccio/conf"
       - "./plugins:/verdaccio/plugins"
 networks:
-  node-network:
-    driver: bridge
+  default:
+    external:
+      name: jenkins
