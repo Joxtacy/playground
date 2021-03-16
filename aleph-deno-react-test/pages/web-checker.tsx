@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import axios from "https://esm.sh/axios";
+import { useDeno } from "https://deno.land/x/aleph/mod.ts";
 
 export default function App() {
     const [siteURL, setSiteURL] = useState("");
     const [response, setResponse] = useState(undefined);
+    const RAPIDAPI_KEY = useDeno(() => Deno.env.get("RAPIDAPI_KEY"));
 
     const submitData = (siteURL: string) => {
         setResponse("Loading...");
         const options = {
             params: { siteURL },
             headers: {
-                "x-rapidapi-key": "5537a24a77msh89ad3708d32a413p12547bjsne7e0c5f2eb9f",
+                "x-rapidapi-key": RAPIDAPI_KEY,
                 "x-rapidapi-host": "website-data-gathering-and-update-tracking.p.rapidapi.com",
             }
         };
