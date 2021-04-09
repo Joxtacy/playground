@@ -17,7 +17,6 @@ chrome.storage.sync.get("compressor-enabled", (data) => {
 });
 
 const messageHandler = (msg) => {
-    console.log("contentScript onMessage", msg);
     switch (msg.type) {
         case "threshold": {
             compressor.threshold.setValueAtTime(
@@ -57,39 +56,58 @@ const messageHandler = (msg) => {
     }
 };
 
-const storageHandler = (changes, namespace) => {
+const initializeStorage = (changes, namespace) => {
     for (let key in changes) {
         let storageChange = changes[key];
-        if (key === "compressor-enabled") {
-            if (storageChange.newValue == true) {
-                videoSource.disconnect(audioContext.destination);
-                videoSource.connect(compressor);
-                compressor.connect(audioContext.destination);
-            } else {
-                videoSource.disconnect(compressor);
-                compressor.disconnect(audioContext.destination);
-                videoSource.connect(audioContext.destination);
+
+        switch (key) {
+            case "compressor-enabled": {
+                if (storageChange.newValue == true) {
+                    videoSource.disconnect(audioContext.destination);
+                    videoSource.connect(compressor);
+                    compressor.connect(audioContext.destination);
+                } else {
+                    videoSource.disconnect(compressor);
+                    compressor.disconnect(audioContext.destination);
+                    videoSource.connect(audioContext.destination);
+                }
+                break;
+            }
+            case "threshold":
+            case "knee":
+            case "ratio":
+            case "attack":
+            case "release": {
+                compressor[key].value = storageChange.newValue;
             }
         }
     }
 };
 
-const initialize = (port) => {
-    console.log("CONNECTED!");
+const initializeMessaging = (port) => {
+    let connected = true;
+    console.info(`Port %c${port.name}`, "color: #3aa757", "connected!");
+    port.onDisconnect.addListener(() => {
+        console.info(`Port %c${port.name}`, "color: #3aa757", "disconnected.");
+        connected = false;
+    });
+
     if (port.name === "compressor") {
         port.onMessage.addListener(messageHandler);
 
         function sendReduction() {
-            port.postMessage({
-                type: "reduction",
-                value: compressor.reduction,
-            });
-            requestAnimationFrame(sendReduction);
+            if (connected) {
+                port.postMessage({
+                    type: "reduction",
+                    value: compressor.reduction,
+                });
+                requestAnimationFrame(sendReduction);
+            }
         }
         sendReduction();
     }
 };
 
-chrome.storage.onChanged.addListener(storageHandler);
-chrome.runtime.onConnect.addListener(initialize);
+chrome.storage.onChanged.addListener(initializeStorage);
+chrome.runtime.onConnect.addListener(initializeMessaging);
 //add onDisconnect

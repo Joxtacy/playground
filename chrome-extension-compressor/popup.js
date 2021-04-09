@@ -1,6 +1,3 @@
-// Initialize button with user's preferred color
-// let changeColor = document.getElementById("changeColor");
-
 let threshold = document.getElementById("threshold");
 let knee = document.getElementById("knee");
 let ratio = document.getElementById("ratio");
@@ -8,6 +5,14 @@ let attack = document.getElementById("attack");
 let release = document.getElementById("release");
 let reduction = document.getElementById("reduction");
 let enableCompressor = document.getElementById("enable-compressor");
+
+const communicate = (obj, fn) => (type, value) => {
+    if (fn === "postMessage") {
+        obj[fn]({ type, value });
+    } else if (fn === "set") {
+        obj[fn]({ [type]: Number(value) });
+    }
+};
 
 chrome.storage.sync.get("compressor-enabled", (data) => {
     const enabled = data["compressor-enabled"];
@@ -38,57 +43,35 @@ enableCompressor.addEventListener("click", (event) => {
 (async function () {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     let port = chrome.tabs.connect(tab.id, { name: "compressor" });
-    console.log("set up connection", port);
+    console.info(`Open port %c${port.name}`, "color: #3aa757");
+
+    window.addEventListener("unload", () => {
+        console.info(`Closing port %c${port.name}`, "color: #3aa757");
+        port.disconnect();
+    });
+
     port.onMessage.addListener((msg) => {
-        console.log("popup onMessage", msg);
         if (msg.type === "reduction") {
             reduction.value = msg.value;
         }
     });
 
+    // const communicator = communicate(port, "postMessage");
+    const communicator = communicate(chrome.storage.sync, "set");
+
     threshold.addEventListener("change", (event) => {
-        port.postMessage({
-            type: "threshold",
-            value: event.target.value,
-        });
+        communicator("threshold", event.target.value);
     });
     knee.addEventListener("change", (event) => {
-        port.postMessage({
-            type: "knee",
-            value: event.target.value,
-        });
+        communicator("knee", event.target.value);
     });
     ratio.addEventListener("change", (event) => {
-        port.postMessage({
-            type: "ratio",
-            value: event.target.value,
-        });
+        communicator("ratio", event.target.value);
     });
     attack.addEventListener("change", (event) => {
-        port.postMessage({
-            type: "attack",
-            value: event.target.value,
-        });
+        communicator("attack", event.target.value);
     });
     release.addEventListener("change", (event) => {
-        port.postMessage({
-            type: "release",
-            value: event.target.value,
-        });
+        communicator("release", event.target.value);
     });
 })();
-
-// Maybe use the storage API for communication?
-/*
-threshold.addEventListener("change", (event) => {
-    console.log("threshold change", event.target.value);
-    chrome.storage.sync.set({ threshold: Number(event.target.value) });
-});
-*/
-
-/*
-knee.addEventListener("change", (event) => {
-    console.log("knee change", event.target.value);
-    chrome.storage.sync.set({ knee: Number(event.target.value) });
-});
-*/
