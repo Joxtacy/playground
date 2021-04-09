@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yep</title>
+    <link rel="stylesheet" href="button.css">
+    <style>
+        #enable-compressor {
+            min-width: 8ch;
+        }
+    </style>
+</head>
+<body>
+    <input type="range" min="-100" max="0" value="-24" step="1" class="slider" name="threshold" id="threshold">
+    <label for="threshold">threshold</label>
+
+    <input type="range" min="0" max="40" value="30" step="0.5" class="slider" name="knee" id="knee">
+    <label for="knee">knee</label>
+
+    <input type="range" min="1" max="20" value="12" step="0.5" class="slider" name="ratio" id="ratio">
+    <label for="ratio">ratio</label>
+
+    <input type="range" min="0" max="1" value="0.003" step="0.001" class="slider" name="attack" id="attack">
+    <label for="attack">attack</label>
+
+    <input type="range" min="0" max="1" value="0.25" step="0.001" class="slider" name="release" id="release">
+    <label for="release">release</label>
+
+    <input type="range" min="-20" max="0" step="0.01" class="slider" name="reduction" id="reduction" disabled>
+    <label for="reduction">reduction</label>
+
+    <button id="enable-compressor">Enable</button>
+
+    <script src="popup.js"></script>
+</body>
+</html>
