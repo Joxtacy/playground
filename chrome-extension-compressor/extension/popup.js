@@ -14,6 +14,14 @@ const communicate = (obj, fn) => (type, value) => {
     }
 };
 
+const getStoredData = async (key) =>
+    new Promise((resolve, reject) => {
+        chrome.storage.sync.get(key, (data) => {
+            const value = data[key];
+            resolve(value);
+        });
+    });
+
 chrome.storage.sync.get("compressor-enabled", (data) => {
     const enabled = data["compressor-enabled"];
 
