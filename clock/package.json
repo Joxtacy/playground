@@ -1,7 +1,7 @@
 {
   "name": "clock",
   "version": "0.0.1",
-  "description": "",
+  "description": "A small clock application",
   "main": "index.ts",
   "scripts": {
     "build": "tsc -t es5 --outDir public index.ts",
