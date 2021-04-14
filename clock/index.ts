@@ -36,7 +36,6 @@ const clockStep = () => {
     date.textContent = dayOfMonth.toString();
     day.textContent = daysOfTheWeek[dayOfWeek];
 
-    console.log(interval - delta);
     expected += interval;
     setTimeout(clockStep, Math.max(0, interval - delta));
 };
