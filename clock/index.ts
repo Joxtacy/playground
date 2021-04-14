@@ -3,6 +3,22 @@ const date = document.getElementById("date");
 const day = document.getElementById("day");
 const hour = document.getElementById("hour");
 const minute = document.getElementById("minute");
+const background = document.getElementById("background-container");
+
+const monthsOfTheYear = [
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
+] as const;
 
 const daysOfTheWeek = [
     "Sun",
@@ -30,6 +46,9 @@ const clockStep = () => {
     const m = currentDate.getMinutes().toString();
     hour.textContent = h.length === 1 ? `0${h}` : h;
     minute.textContent = m.length === 1 ? `0${m}` : m;
+
+    const month = currentDate.getMonth();
+    background.style.backgroundImage = `url('images/${monthsOfTheYear[month]}.jpg')`;
 
     const dayOfMonth = currentDate.getDate();
     const dayOfWeek = currentDate.getDay();
