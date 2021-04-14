@@ -1,0 +1,16 @@
+{
+  "name": "clock",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc -t es5 --outDir dist index.ts",
+    "watch": "tsc -t es5 -w --outDir dist index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jesper Hasselquist <jesper.hasselquist@gmail.com> (https://joxtacy.github.io/)",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
+}
