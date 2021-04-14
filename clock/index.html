@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <title>Clock</title>
+</head>
+<body>
+    <div id="background-container"></div>
+    <div id="content-container">
+        <div id="svg-container">
+            <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="150" cy="150" r="95" fill="black" fill-opacity="30%"/>
+                <path id="arc1" fill="transparent" stroke="#ffffff" stroke-width="5"/>
+                <text x="80" y="160" id="hour" class="time"></text>
+                <text x="160" y="160" id="minute" class="time"></text>
+                <text x="115" y="185" id="date" class="date"></text>
+                <text x="165" y="185" id="day" class="date"></text>
+                <path d="M 150 100 V 200" stroke="white"/>
+            </svg>
+        </div>
+    </div>
+    <script src="dist/index.js"></script>
+</body>
+</html>

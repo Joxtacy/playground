@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#background-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("images/sakura.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(5px);
+}
+
+#content-container {
+    z-index: 1;
+    user-select: none;
+}
+
+#svg-container {
+    width: 75vmin;
+    height: 75vmin;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.time {
+    font: 50px Mulish;
+    fill: white;
+}
+
+.date {
+    font: 15px Mulish;
+    fill: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+}
