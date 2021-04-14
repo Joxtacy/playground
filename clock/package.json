@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "build": "tsc -t es5 --outDir dist index.ts",
-    "watch": "tsc -t es5 -w --outDir dist index.ts",
+    "build": "tsc -t es5 --outDir public index.ts",
+    "watch": "tsc -t es5 -w --outDir public index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jesper Hasselquist <jesper.hasselquist@gmail.com> (https://joxtacy.github.io/)",
