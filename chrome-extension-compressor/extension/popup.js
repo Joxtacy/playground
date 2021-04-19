@@ -5,6 +5,9 @@ let attack = document.getElementById("attack");
 let release = document.getElementById("release");
 let reduction = document.getElementById("reduction");
 let enableCompressor = document.getElementById("enable-compressor");
+let saveButton = document.getElementById("save-settings");
+
+const settingsSliders = [threshold, knee, ratio, attack, release];
 
 const communicate = (obj, fn) => (type, value) => {
     if (fn === "postMessage") {
@@ -48,6 +51,12 @@ enableCompressor.addEventListener("click", (event) => {
     }
 });
 
+saveButton.addEventListener("click", (event) => {
+    settingsSliders.forEach((slider) => {
+        chrome.storage.sync.set({ [slider.id]: Number(slider.value) });
+    });
+});
+
 (async function () {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     let port = chrome.tabs.connect(tab.id, { name: "compressor" });
@@ -64,8 +73,14 @@ enableCompressor.addEventListener("click", (event) => {
         }
     });
 
-    // const communicator = communicate(port, "postMessage");
-    const communicator = communicate(chrome.storage.sync, "set");
+    const promises = settingsSliders.map((slider) => getStoredData(slider.id));
+    const values = await Promise.all(promises);
+    for (let i = 0; i < values.length; i++) {
+        settingsSliders[i].value = values[i];
+    }
+
+    const communicator = communicate(port, "postMessage");
+    // const communicator = communicate(chrome.storage.sync, "set");
 
     threshold.addEventListener("change", (event) => {
         communicator("threshold", event.target.value);
