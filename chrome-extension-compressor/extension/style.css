@@ -1,0 +1,39 @@
+body {
+    margin: 5px;
+    min-width: 200px;
+}
+
+button {
+    height: 30px;
+    width: 30px;
+    min-width: 8ch;
+    outline: none;
+    margin: 10px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+button.current {
+    box-shadow: 0 0 0 2px white,
+                0 0 0 4px black;
+}
+
+button:hover {
+    background-color: darkgray;
+}
+
+button:active {
+    background-color: azure;
+}
+
+.sliders-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.slider-container {
+    display: flex;
+    justify-content: space-between;
+}
