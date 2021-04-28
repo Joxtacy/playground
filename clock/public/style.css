@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Mulish";
+    src: url("/fonts/static/Mulish-Regular.ttf");
+}
+
 body {
     margin: 0;
     height: 100vh;
@@ -31,12 +36,16 @@ body {
 }
 
 .time {
-    font: 50px Mulish;
+    font-display: swap;
+    font-family: "Mulish", sans-serif;
+    font-size: 50px;
     fill: white;
 }
 
 .date {
-    font: 15px Mulish;
+    font-display: swap;
+    font-family: "Mulish", sans-serif;
+    font-size: 15px;
     fill: rgba(255, 255, 255, 0.8);
     text-transform: uppercase;
 }

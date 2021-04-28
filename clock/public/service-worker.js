@@ -4,6 +4,7 @@ const assets = [
     "/index.html",
     "/index.js",
     "/style.css",
+    "/fonts/static/Mulish-Regular.ttf",
     "/images/january.jpg",
     "/images/february.jpg",
     "/images/march.jpg",
