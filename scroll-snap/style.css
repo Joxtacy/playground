@@ -1,0 +1,56 @@
+:root {
+    --medium: 16px;
+    --large: 32px;
+}
+
+body {
+    margin: 0;
+}
+
+.swipe-container {
+    display: flex;
+    overflow: auto;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.swipe-container::-webkit-scrollbar {
+    display: none;
+}
+
+.swipe-element {
+    scroll-snap-align: start;
+    font-family: sans-serif;
+    padding: var(--medium);
+    background-color: whitesmoke;
+}
+
+.swipe-element {
+    min-width: calc(100% - var(--large));
+}
+
+.action {
+    min-width: 100%;
+}
+
+.action {
+    display: flex;
+    align-items: center;
+}
+
+i {
+    color: white;
+    position: sticky;
+    left: var(--medium);
+    right: var(--medium);
+}
+
+.left {
+    justify-content: flex-start;
+    background-color: orchid;
+}
+
+.right {
+    justify-content: flex-end;
+    background-color: cornflowerblue;
+}
