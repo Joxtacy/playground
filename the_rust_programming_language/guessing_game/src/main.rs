@@ -5,7 +5,8 @@ use std::io;
 fn main() {
     println!("Guess the number!");
 
-    let secret_number = rand::thread_rng().gen_range(-100..=100); // 1..101 is equivalent
+    let secret_number = rand::thread_rng().gen_range(-100..=100); // -100..101 is equivalent
+    // let secret_number = rand::thread_rng().gen_range(1..=100); // 1..101 is equivalent
 
     // println!("The secret number is: {}", secret_number);
 
@@ -18,6 +19,7 @@ fn main() {
             .read_line(&mut guess)
             .expect("Failed to read line");
 
+        //let guess: u32 = match guess.trim().parse() {
         let guess: i32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => continue,
