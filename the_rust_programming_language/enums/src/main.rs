@@ -48,6 +48,15 @@ fn main() {
         fn call(&self) {
             // method body would be defined here
             dbg!(&self);
+            match &self {
+                Self::Write(s) => println!("This is Message::Write(\"{}\")", s),
+                Self::Quit => println!("herp"),
+                Self::ChangeColor(a, b, c) => println!("derp: {} {} {}", a, b, c),
+                _ => {
+                    println!("all other cases");
+                    ()
+                }
+            }
         }
     }
 
