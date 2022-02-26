@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            :root {
+                --dark-color: #635bff;
+                --light-color: #80e9ff;
+            }
+
+            svg {
+                cursor: pointer;
+            }
+
+            #darkGroup {
+                fill: var(--dark-color);
+            }
+
+            #lightGroup {
+                fill: var(--light-color);
+            }
+
+            #dark1,
+            #dark2,
+            #light1 {
+                transition: all 1s ease;
+            }
+
+            #dark2 {
+                transform: translateX(-100%);
+            }
+
+            svg:hover #light1 {
+                transform: translateX(20%);
+            }
+
+            svg:hover #dark1 {
+                transform: translateX(40%);
+                opacity: 0;
+            }
+
+            svg:hover #dark2 {
+                transform: translateX(0%);
+            }
+        </style>
+        <style>
+            #skeleton {
+                animation: fadeInUp 1s;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20%);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            #bolts g {
+                opacity: 0;
+                animation: dropIn 8s ease forwards infinite;
+                animation-delay: calc(var(--order) * 200ms);
+            }
+
+            @keyframes dropIn {
+                20% {
+                    opacity: 0;
+                    transform: translateY(-20%);
+                }
+
+                30%,
+                95% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                100% {
+                    opacity: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <svg
+            viewBox="0 0 120 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <g id="triangles" clip-path="url(#clip0)">
+                <g id="lightGroup">
+                    <path
+                        id="light1"
+                        opacity="0.6"
+                        d="M45 48.268C46.3333 49.0378 46.3333 50.9623 45 51.7321L10.5 71.6506C9.16666 72.4204 7.5 71.4582 7.5 69.9186V30.0814C7.5 28.5418 9.16667 27.5796 10.5 28.3494L45 48.268Z"
+                    />
+                </g>
+                <g id="darkGroup">
+                    <path
+                        id="dark1"
+                        opacity="0.8"
+                        d="M65 48.268C66.3333 49.0378 66.3333 50.9623 65 51.7321L30.5 71.6506C29.1667 72.4204 27.5 71.4582 27.5 69.9186V30.0814C27.5 28.5418 29.1667 27.5796 30.5 28.3494L65 48.268Z"
+                    />
+                    <path
+                        id="dark2"
+                        opacity="0.8"
+                        d="M45 48.268C46.3333 49.0378 46.3333 50.9623 45 51.7321L10.5 71.6506C9.16666 72.4204 7.5 71.4582 7.5 69.9186V30.0814C7.5 28.5418 9.16667 27.5796 10.5 28.3494L45 48.268Z"
+                    />
+                </g>
+            </g>
+            <defs>
+                <clipPath id="clip0">
+                    <rect width="120" height="100" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+
+        <svg
+            viewBox="0 0 169 228"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <g id="phone">
+                <g id="phonebody">
+                    <g id="Rectangle 1" filter="url(#filter0_d)">
+                        <rect
+                            x="28"
+                            y="14"
+                            width="112"
+                            height="200"
+                            rx="12"
+                            fill="#F7F7F7"
+                        />
+                    </g>
+                </g>
+                <g id="skeleton">
+                    <g id="roundbutton">
+                        <circle
+                            id="Ellipse 1"
+                            cx="43"
+                            cy="29"
+                            r="5"
+                            fill="#EAEAEA"
+                        />
+                    </g>
+                    <g id="burger">
+                        <rect
+                            id="Rectangle 2"
+                            x="119"
+                            y="25"
+                            width="12"
+                            height="2"
+                            fill="#EAEAEA"
+                        />
+                        <rect
+                            id="Rectangle 4"
+                            x="119"
+                            y="31"
+                            width="12"
+                            height="2"
+                            fill="#EAEAEA"
+                        />
+                        <rect
+                            id="Rectangle 3"
+                            x="119"
+                            y="28"
+                            width="12"
+                            height="2"
+                            fill="#EAEAEA"
+                        />
+                    </g>
+                    <g id="textboxes">
+                        <rect
+                            id="Rectangle 6"
+                            x="38"
+                            y="48"
+                            width="25"
+                            height="7"
+                            rx="1"
+                            fill="#EAEAEA"
+                        />
+                        <rect
+                            id="Rectangle 9"
+                            x="66"
+                            y="48"
+                            width="43"
+                            height="7"
+                            rx="1"
+                            fill="#EAEAEA"
+                        />
+                        <rect
+                            id="Rectangle 7"
+                            x="112"
+                            y="48"
+                            width="19"
+                            height="7"
+                            rx="1"
+                            fill="#EAEAEA"
+                        />
+                        <rect
+                            id="Rectangle 8"
+                            x="38"
+                            y="60"
+                            width="36"
+                            height="7"
+                            rx="1"
+                            fill="#EAEAEA"
+                        />
+                        <rect
+                            id="Rectangle 10"
+                            x="77"
+                            y="60"
+                            width="23"
+                            height="7"
+                            rx="1"
+                            fill="#EAEAEA"
+                        />
+                        <rect
+                            id="Rectangle 11"
+                            x="103"
+                            y="60"
+                            width="28"
+                            height="7"
+                            rx="1"
+                            fill="#EAEAEA"
+                        />
+                    </g>
+                    <g id="mountainboxes">
+                        <g id="mountainbox1">
+                            <rect
+                                id="Rectangle 12"
+                                x="43"
+                                y="120"
+                                width="36"
+                                height="36"
+                                rx="2"
+                                fill="#EAEAEA"
+                            />
+                            <path
+                                id="Vector 1"
+                                d="M53 131L43 143V154C43 155 44 156 45 156H77C78 156 79 155 79 154V143L71 135L62 143L53 131Z"
+                                fill="#C4C4C4"
+                            />
+                        </g>
+                        <g id="mountainbox2">
+                            <rect
+                                id="Rectangle 12_2"
+                                x="89"
+                                y="120"
+                                width="36"
+                                height="36"
+                                rx="2"
+                                fill="#EAEAEA"
+                            />
+                            <path
+                                id="Vector 1_2"
+                                d="M99 131L89 143V154C89 155 90 156 91 156H123C124 156 125 155 125 154V143L117 135L108 143L99 131Z"
+                                fill="#C4C4C4"
+                            />
+                        </g>
+                        <g id="mountainbox3">
+                            <rect
+                                id="Rectangle 12_3"
+                                x="89"
+                                y="166"
+                                width="36"
+                                height="36"
+                                rx="2"
+                                fill="#EAEAEA"
+                            />
+                            <path
+                                id="Vector 1_3"
+                                d="M99 177L89 189V200C89 201 90 202 91 202H123C124 202 125 201 125 200V189L117 181L108 189L99 177Z"
+                                fill="#C4C4C4"
+                            />
+                        </g>
+                        <g id="mountainbox4">
+                            <rect
+                                id="Rectangle 12_4"
+                                x="43"
+                                y="166"
+                                width="36"
+                                height="36"
+                                rx="2"
+                                fill="#EAEAEA"
+                            />
+                            <path
+                                id="Vector 1_4"
+                                d="M53 177L43 189V200C43 201 44 202 45 202H77C78 202 79 201 79 200V189L71 181L62 189L53 177Z"
+                                fill="#C4C4C4"
+                            />
+                        </g>
+                    </g>
+                    <g id="bigbutton">
+                        <rect
+                            id="Rectangle 13"
+                            x="47"
+                            y="82"
+                            width="74"
+                            height="16"
+                            rx="8"
+                            fill="#EAEAEA"
+                        />
+                    </g>
+                </g>
+                <g id="bolts">
+                    <g id="bolt1" style="--order: 1">
+                        <rect
+                            id="Rectangle 14"
+                            x="47"
+                            y="82"
+                            width="74"
+                            height="16"
+                            rx="8"
+                            fill="#13EC00"
+                        />
+                        <path
+                            d="M86.5385 84H82.8462L81 89.9583H83.3077L81.9231 95L87 87.6667H84.6923L86.5385 84Z"
+                            fill="white"
+                        />
+                    </g>
+                    <g id="bolt2" style="--order: 2">
+                        <circle
+                            id="Ellipse 2"
+                            cx="79"
+                            cy="120"
+                            r="7"
+                            fill="#13EC00"
+                        />
+                        <path
+                            d="M81.5385 115H77.8462L76 120.958H78.3077L76.9231 126L82 118.667H79.6923L81.5385 115Z"
+                            fill="white"
+                        />
+                    </g>
+                    <g id="bolt3" style="--order: 3">
+                        <circle
+                            id="Ellipse 3"
+                            cx="125"
+                            cy="120"
+                            r="7"
+                            fill="#13EC00"
+                        />
+                        <path
+                            d="M127.538 115H123.846L122 120.958H124.308L122.923 126L128 118.667H125.692L127.538 115Z"
+                            fill="white"
+                        />
+                    </g>
+                    <g id="bolt4" style="--order: 4">
+                        <circle
+                            id="Ellipse 4"
+                            cx="79"
+                            cy="166"
+                            r="7"
+                            fill="#13EC00"
+                        />
+                        <path
+                            d="M81.5385 161H77.8462L76 166.958H78.3077L76.9231 172L82 164.667H79.6923L81.5385 161Z"
+                            fill="white"
+                        />
+                    </g>
+                    <g id="bolt5" style="--order: 5">
+                        <circle
+                            id="Ellipse 5"
+                            cx="125"
+                            cy="166"
+                            r="7"
+                            fill="#13EC00"
+                        />
+                        <path
+                            d="M127.538 161H123.846L122 166.958H124.308L122.923 172L128 164.667H125.692L127.538 161Z"
+                            fill="white"
+                        />
+                    </g>
+                </g>
+            </g>
+            <defs>
+                <filter
+                    id="filter0_d"
+                    x="24"
+                    y="14"
+                    width="120"
+                    height="208"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow"
+                        result="shape"
+                    />
+                </filter>
+                <filter
+                    id="filter1_i"
+                    x="81"
+                    y="84"
+                    width="6"
+                    height="11"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                    />
+                    <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                    />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="0.5" />
+                    <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                    />
+                    <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow"
+                    />
+                </filter>
+                <filter
+                    id="filter2_i"
+                    x="76"
+                    y="115"
+                    width="6"
+                    height="11"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                    />
+                    <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                    />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="0.5" />
+                    <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                    />
+                    <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow"
+                    />
+                </filter>
+                <filter
+                    id="filter3_i"
+                    x="122"
+                    y="115"
+                    width="6"
+                    height="11"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                    />
+                    <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                    />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="0.5" />
+                    <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                    />
+                    <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow"
+                    />
+                </filter>
+                <filter
+                    id="filter4_i"
+                    x="76"
+                    y="161"
+                    width="6"
+                    height="11"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                    />
+                    <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                    />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="0.5" />
+                    <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                    />
+                    <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow"
+                    />
+                </filter>
+                <filter
+                    id="filter5_i"
+                    x="122"
+                    y="161"
+                    width="6"
+                    height="11"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                    />
+                    <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                    />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="0.5" />
+                    <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                    />
+                    <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow"
+                    />
+                </filter>
+            </defs>
+        </svg>
+
+        <script>
+            const svg = document.getElementById("triangles");
+
+            svg.onclick = (e) => {
+                const colors = [
+                    "red",
+                    "blue",
+                    "green",
+                    "orange",
+                    "pink",
+                    "purple",
+                ];
+                const rando = () =>
+                    colors[Math.floor(Math.random() * colors.length)];
+
+                document.documentElement.style.cssText = `
+            --dark-color: ${rando()};
+            --light-color: ${rando()};
+            `;
+            };
+        </script>
+    </body>
+</html>
