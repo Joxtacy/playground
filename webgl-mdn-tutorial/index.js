@@ -2,30 +2,33 @@ import {
     drawScene,
     initBuffers,
     initShaderProgram,
+    loadTexture,
 } from "./webGlUtils.js";
 
 // Vertex shader program
 const vsSource = `
 attribute vec4 aVertexPosition;
-attribute vec4 aVertexColor;
+attribute vec2 aTextureCoord;
 
 uniform mat4 uModelViewMatrix;
 uniform mat4 uProjectionMatrix;
 
-varying lowp vec4 vColor;
+varying highp vec2 vTextureCoord;
 
 void main() {
     gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
-    vColor = aVertexColor;
+    vTextureCoord = aTextureCoord;
 }
 `;
 
 // Fragment shader program
 const fsSource = `
-varying lowp vec4 vColor;
+varying highp vec2 vTextureCoord;
+
+uniform sampler2D uSampler;
 
 void main() {
-    gl_FragColor = vColor;
+    gl_FragColor = texture2D(uSampler, vTextureCoord);
 }
 `;
 
@@ -52,17 +55,21 @@ function main() {
         program: shaderProgram,
         attribLocations: {
             vertexPosition: gl.getAttribLocation(shaderProgram, "aVertexPosition"),
-            vertexColor: gl.getAttribLocation(shaderProgram, "aVertexColor"),
+            textureCoord: gl.getAttribLocation(shaderProgram, "aTextureCoord"),
         },
         uniformLocations: {
             projectionMatrix: gl.getUniformLocation(shaderProgram, "uProjectionMatrix"),
             modelViewMatrix: gl.getUniformLocation(shaderProgram, "uModelViewMatrix"),
+            uSampler: gl.getUniformLocation(shaderProgram, "uSampler"),
         },
     };
 
     // Here's where we call the routine that builds all the
     // objects we'll be drawing.
     const buffers = initBuffers(gl);
+
+    // Load our texture
+    const texture = loadTexture(gl, "cubetexture.png");
 
     let squareRotation = 0;
     let then = 0;
@@ -73,7 +80,7 @@ function main() {
         then = now;
 
         squareRotation += deltaTime;
-        drawScene(gl, programInfo, buffers, squareRotation);
+        drawScene(gl, programInfo, buffers, texture, squareRotation);
 
         requestAnimationFrame(render);
     }
