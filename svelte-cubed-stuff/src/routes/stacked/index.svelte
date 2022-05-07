@@ -1,10 +1,17 @@
 <script lang="ts">
   import * as THREE from "three";
   import * as SC from "svelte-cubed";
+  import * as CANNON from "cannon";
   import { onMount } from "svelte";
+
+  const world = new CANNON.World();
+  world.gravity.set(0, -10, 0); // Gravity pulls things down
+  world.broadphase = new CANNON.NaiveBroadphase();
+  world.solver.iterations = 40;
 
   interface GeneratedBox {
     threejs: THREE.Mesh;
+    cannonjs: CANNON.Body;
     width: number;
     depth: number;
     direction: "x" | "z";
@@ -33,8 +40,10 @@
     y: number,
     z: number,
     width: number,
-    depth: number
+    depth: number,
+    falls: boolean
   ): GeneratedBox => {
+    // ThreeJS
     const geometry = new THREE.BoxGeometry(width, boxHeight, depth);
 
     const color = new THREE.Color(`hsl(${30 + stack.length * 4}, 100%, 50%)`);
@@ -43,8 +52,16 @@
     const mesh = new THREE.Mesh(geometry, material);
     mesh.position.set(x, y, z);
 
+    // CannonJS
+    const shape = new CANNON.Box(new CANNON.Vec3(width / 2, boxHeight / 2, depth / 2));
+    let mass = falls ? 5 : 0;
+    const body = new CANNON.Body({ mass, shape });
+    body.position.set(x, y, z);
+    world.addBody(body);
+
     return {
       threejs: mesh,
+      cannonjs: body,
       width,
       depth,
       direction: "x",
@@ -54,7 +71,7 @@
   const addLayer = (x: number, z: number, width: number, depth: number, direction: "x" | "z") => {
     const y = boxHeight * stack.length; // Add the new box one layer higher
 
-    const layer = generateBox(x, y, z, width, depth);
+    const layer = generateBox(x, y, z, width, depth, false);
     layer.direction = direction;
 
     stack = [...stack, layer];
@@ -62,9 +79,45 @@
 
   const addOverhang = (x: number, z: number, width: number, depth: number) => {
     const y = boxHeight * (stack.length - 1); // Add the new box on the same layer
-    const overhang = generateBox(x, y, z, width, depth);
+    const overhang = generateBox(x, y, z, width, depth, true);
 
     overhangs = [...overhangs, overhang];
+  };
+
+  const cutBox = (topLayer: GeneratedBox, overlap: number, size: number, delta: number) => {
+    const direction = topLayer.direction;
+    // Cut layer
+    const newWidth = direction === "x" ? overlap : topLayer.width;
+    const newDepth = direction === "z" ? overlap : topLayer.depth;
+
+    // Update metadata
+    topLayer.width = newWidth;
+    topLayer.depth = newDepth;
+
+    // Update ThreeJS model
+    topLayer.threejs.scale[direction] = overlap / size;
+    topLayer.threejs.position[direction] -= delta / 2;
+
+    // Update CannonJS model
+    topLayer.cannonjs.position[direction] -= delta / 2;
+
+    // Replace shape to a smaller one (in CannonJS you can't just simply scale a shape)
+    const shape = new CANNON.Box(new CANNON.Vec3(newWidth / 2, boxHeight / 2, newDepth / 2));
+    topLayer.cannonjs.shapes = [];
+    topLayer.cannonjs.addShape(shape);
+
+    stack = [...stack, topLayer];
+  };
+
+  const updatePhysics = () => {
+    world.step(1 / 60); // Step the physics world
+
+    // Copy the coordinates from CannonJS to ThreeJS
+    overhangs.forEach((overhang) => {
+      overhang.threejs.position.copy(overhang.cannonjs.position as unknown as THREE.Vector3);
+      overhang.threejs.quaternion.copy(overhang.cannonjs.quaternion as unknown as THREE.Quaternion);
+    });
+    overhangs = [...overhangs];
   };
 
   const onClick = () => {
@@ -87,19 +140,10 @@
       const overlap = size - overhangSize;
 
       if (overlap > 0) {
-        // Cut layer
         const newWidth = direction === "x" ? overlap : topLayer.width;
         const newDepth = direction === "z" ? overlap : topLayer.depth;
 
-        // Update metadata
-        topLayer.width = newWidth;
-        topLayer.depth = newDepth;
-
-        // Update ThreeJS model
-        topLayer.threejs.scale[direction] = overlap / size;
-        topLayer.threejs.position[direction] -= delta / 2;
-
-        stack = [...stack, topLayer];
+        cutBox(topLayer, overlap, size, delta);
 
         // Overhang
         const overhangShift = (overlap / 2 + overhangSize / 2) * Math.sign(delta);
@@ -130,13 +174,16 @@
     const speed = 0.15;
 
     const topLayer = stack.splice(stack.length - 1)[0];
-    topLayer.threejs.position[topLayer.direction ?? "z"] += speed;
+    topLayer.threejs.position[topLayer.direction] += speed;
+    topLayer.cannonjs.position[topLayer.direction] += speed;
 
     stack = [...stack, topLayer];
     if (cameraYPos < boxHeight * (stack.length - 2) + 4) {
       cameraYPos += speed;
       targetY += speed;
     }
+
+    updatePhysics();
   };
 
   SC.onFrame(() => {

@@ -17,6 +17,7 @@
     "@playwright/test": "^1.21.0",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
+    "@types/cannon": "^0.1.8",
     "@types/three": "^0.140.0",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
@@ -33,6 +34,7 @@
   },
   "type": "module",
   "dependencies": {
+    "cannon": "^0.6.2",
     "svelte-cubed": "^0.2.1",
     "three": "^0.140.0"
   }
