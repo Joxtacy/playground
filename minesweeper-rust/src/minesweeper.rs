@@ -18,6 +18,7 @@ pub struct Minesweeper {
     open_fields: HashSet<Position>,
     mines: HashSet<Position>,
     flagged_fields: HashSet<Position>,
+    game_over: bool,
 }
 
 impl Display for Minesweeper {
@@ -27,15 +28,22 @@ impl Display for Minesweeper {
                 let pos = (x, y);
 
                 if !self.open_fields.contains(&pos) {
-                    if self.flagged_fields.contains(&pos) {
-                        f.write_char('🚩');
+                    if self.game_over && self.mines.contains(&pos) {
+                        f.write_str(" 💣 ");
+                    } else if self.flagged_fields.contains(&pos) {
+                        f.write_str(" 🚩 ");
                     } else {
-                        f.write_char('🟪');
+                        f.write_str(" 🟪 ");
                     }
                 } else if self.mines.contains(&pos) {
-                    f.write_char('💣');
+                    f.write_str(" 💣 ");
                 } else {
-                    write!(f, "{} ", self.neighboring_mines(pos))?;
+                    let mine_count = self.neighboring_mines(pos);
+                    if mine_count > 0 {
+                        write!(f, " {} ", mine_count)?;
+                    } else {
+                        f.write_str(" ⬜️ ");
+                    }
                 }
             }
             f.write_char('\n');
@@ -60,13 +68,14 @@ impl Minesweeper {
                 mines
             },
             flagged_fields: HashSet::new(),
+            game_over: false,
         }
     }
 
     fn iter_neighbors(&self, (x, y): Position) -> impl Iterator<Item = Position> {
         let width = self.width;
         let height = self.height;
-        ((x).max(1) - 1..=(x + 1).min(width -1))
+        ((x).max(1) - 1..=(x + 1).min(width - 1))
             .flat_map(move |i| ((y).max(1) - 1..=(y + 1).min(height - 1)).map(move |j| (i, j)))
             .filter(move |&pos| pos != (x, y))
     }
@@ -78,7 +87,7 @@ impl Minesweeper {
     }
 
     pub fn toggle_flag(&mut self, pos: Position) {
-        if self.open_fields.contains(&pos) {
+        if self.game_over || self.open_fields.contains(&pos) {
             return;
         }
 
@@ -90,7 +99,7 @@ impl Minesweeper {
     }
 
     pub fn open(&mut self, pos: Position) -> Option<OpenResult> {
-        if self.flagged_fields.contains(&pos) {
+        if self.game_over || self.open_fields.contains(&pos) || self.flagged_fields.contains(&pos) {
             return None;
         }
 
@@ -99,8 +108,16 @@ impl Minesweeper {
         let is_mine = self.mines.contains(&pos);
 
         if is_mine {
+            self.game_over = true;
             Some(OpenResult::Mine)
         } else {
+            let mine_count = self.neighboring_mines(pos);
+
+            if mine_count == 0 {
+                for neighbor in self.iter_neighbors(pos) {
+                    self.open(neighbor);
+                }
+            }
             Some(OpenResult::NoMine(self.neighboring_mines(pos)))
         }
     }
