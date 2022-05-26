@@ -66,8 +66,8 @@ impl Minesweeper {
     fn iter_neighbors(&self, (x, y): Position) -> impl Iterator<Item = Position> {
         let width = self.width;
         let height = self.height;
-        ((x - 1).max(0)..=(x + 1).min(width - 1))
-            .flat_map(move |i| ((y - 1).max(0)..=(y + 1).min(height - 1)).map(move |j| (i, j)))
+        ((x).max(1) - 1..=(x + 1).min(width -1))
+            .flat_map(move |i| ((y).max(1) - 1..=(y + 1).min(height - 1)).map(move |j| (i, j)))
             .filter(move |&pos| pos != (x, y))
     }
 
