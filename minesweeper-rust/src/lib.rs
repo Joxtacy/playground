@@ -33,3 +33,10 @@ pub fn toggle_flag(x: usize, y: usize) {
         ms.borrow_mut().toggle_flag((x, y));
     })
 }
+
+#[wasm_bindgen(js_name = getWon)]
+pub fn get_won() -> bool {
+    MINESWEEPER.with(|ms| {
+        ms.borrow().get_won()
+    })
+}

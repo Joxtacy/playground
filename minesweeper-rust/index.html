@@ -23,7 +23,7 @@
 <body>
     <div id="root"></div>
     <script type="module">
-        import init, { getState, openField, toggleFlag } from "./pkg/minesweeper_rust.js";
+        import init, { getState, openField, toggleFlag, getWon } from "./pkg/minesweeper_rust.js";
         async function main() {
             await init();
 

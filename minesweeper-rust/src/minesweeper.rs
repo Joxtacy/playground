@@ -19,6 +19,7 @@ pub struct Minesweeper {
     mines: HashSet<Position>,
     flagged_fields: HashSet<Position>,
     game_over: bool,
+    won: bool,
 }
 
 impl Display for Minesweeper {
@@ -69,7 +70,12 @@ impl Minesweeper {
             },
             flagged_fields: HashSet::new(),
             game_over: false,
+            won: false,
         }
+    }
+
+    pub fn get_won(&self) -> bool {
+        self.won
     }
 
     fn iter_neighbors(&self, (x, y): Position) -> impl Iterator<Item = Position> {
@@ -139,6 +145,9 @@ impl Minesweeper {
                         self.open(neighbor);
                     }
                 }
+            }
+            if self.open_fields.len() == self.width * self.height - self.mines.len() {
+                self.won = true;
             }
             Some(OpenResult::NoMine(self.neighboring_mines(pos)))
         }
