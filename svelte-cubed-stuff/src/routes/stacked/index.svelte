@@ -122,7 +122,6 @@
 
   const onClick = () => {
     if (!gameStarted) {
-      // renderer.setAnimationLoop(animation)
       gameStarted = true;
     } else {
       const topLayer = stack.splice(stack.length - 1)[0];
