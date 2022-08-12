@@ -29,10 +29,23 @@ impl Component for CounterComponent {
         let link = ctx.link();
         html! {
             <div class="container">
+                <Henlo name={"Wurl".to_owned()} />
                 <p>{ self.count }</p>
                 <button onclick={link.callback(|_| Msg::AddOne)}>{ "+1" }</button>
             </div>
         }
+    }
+}
+
+#[derive(Properties, PartialEq)]
+struct HenloProperties {
+    name: String,
+}
+
+#[function_component(Henlo)]
+fn app(HenloProperties { name }: &HenloProperties) -> Html {
+    html! {
+        <h1>{ format!("Henlo {}", name) }</h1>
     }
 }
 
