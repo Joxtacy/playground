@@ -1,0 +1,15 @@
+{
+  "name": "test_observables",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prime.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "rxjs": "^6.5.3",
+    "webpack": "^4.39.3"
+  }
+}
