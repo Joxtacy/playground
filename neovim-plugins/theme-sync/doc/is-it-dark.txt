@@ -1,0 +1,14 @@
+================================================================================
+                                                           *is-it-dark.nvim*
+
+is-it-dark.nvim is a plugin for changing the background to
+match the MacOS theme.
+
+To find out more:
+https://github.com/joxtacy/is-it-dark.nvim
+
+  :h JoxIsItDark
+
+JoxIsItDark                                                        *JoxIsItDark*
+    Sets the background of your editor to match the OS
+================================================================================
